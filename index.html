@@ -449,88 +449,136 @@
 
       //
 
-      // Хэрэглэгчээс дараалал авах (таслалаар тусгаарласан тоонууд)
-      let input = prompt("Тоонуудыг таслалаар (,) тусгаарлаж оруулна уу:");
+      // // Хэрэглэгчээс дараалал авах (таслалаар тусгаарласан тоонууд)
+      // let input = prompt("Тоонуудыг таслалаар (,) тусгаарлаж оруулна уу:");
 
-      if (input) {
-        // Стрингийг тоон массив болгох
-        let arr = input.split(",").map((num) => parseInt(num.trim()));
+      // if (input) {
+      //   // Стрингийг тоон массив болгох
+      //   let arr = input.split(",").map((num) => parseInt(num.trim()));
 
-        let result = [];
+      //   let result = [];
 
-        // Дарааллын төрөл шалгах
-        let isEvenSequence = true;
-        for (let i = 1; i < arr.length; i++) {
-          if (arr[i] - arr[i - 1] !== 2) {
-            isEvenSequence = false;
-            break;
+      //   // Дарааллын төрөл шалгах
+      //   let isEvenSequence = true;
+      //   for (let i = 1; i < arr.length; i++) {
+      //     if (arr[i] - arr[i - 1] !== 2) {
+      //       isEvenSequence = false;
+      //       break;
+      //     }
+      //   }
+
+      //   let isSquareSequence = true;
+      //   for (let i = 0; i < arr.length; i++) {
+      //     if (arr[i] !== (i + 1) * (i + 1)) {
+      //       isSquareSequence = false;
+      //       break;
+      //     }
+      //   }
+
+      //   let isFiboSequence = true;
+      //   for (let i = 2; i < arr.length; i++) {
+      //     if (arr[i] !== arr[i - 1] + arr[i - 2]) {
+      //       isFiboSequence = false;
+      //       break;
+      //     }
+      //   }
+
+      //   let isProductSequence = true;
+      //   for (let i = 0; i < arr.length; i++) {
+      //     if (arr[i] !== (i + 1) * (i + 2)) {
+      //       isProductSequence = false;
+      //       break;
+      //     }
+      //   }
+
+      //   // Дараагийн 3 тоог олох
+      //   if (isEvenSequence) {
+      //     let last = arr[arr.length - 1];
+      //     for (let i = 1; i <= 3; i++) {
+      //       result.push(last + 2 * i);
+      //     }
+      //   } else if (isSquareSequence) {
+      //     let start = arr.length + 1;
+      //     for (let i = start; i < start + 3; i++) {
+      //       result.push(i * i);
+      //     }
+      //   } else if (isFiboSequence) {
+      //     let a = arr[arr.length - 2];
+      //     let b = arr[arr.length - 1];
+      //     for (let i = 0; i < 3; i++) {
+      //       let c = a + b;
+      //       result.push(c);
+      //       a = b;
+      //       b = c;
+      //     }
+      //   } else if (isProductSequence) {
+      //     let start = arr.length + 1;
+      //     for (let i = start; i < start + 3; i++) {
+      //       result.push(i * (i + 1));
+      //     }
+      //   } else {
+      //     console.log("Тодорхой дараалал биш байна");
+      //   }
+
+      //   console.log("Дараагийн 3 тоо: " + result.join(", "));
+      // } else {
+      //   console.log("Оролт хоосон байна");
+      // }
+      // //
+
+      //
+
+      //
+
+      //
+      let position = prompt("Магын байрлалыг оруулна уу (жишээ: d4):");
+
+      // Самбарын баганууд болон мөрүүд
+      const cols = ["a", "b", "c", "d", "e", "f", "g", "h"];
+      const rows = [1, 2, 3, 4, 5, 6, 7, 8];
+
+      // Магын боломжит шилжих координатууд (x,y)
+      const moves = [
+        [2, 1],
+        [2, -1],
+        [-2, 1],
+        [-2, -1],
+        [1, 2],
+        [1, -2],
+        [-1, 2],
+        [-1, -2],
+      ];
+
+      // Бүтээгдэхүүн байрлалуудыг хадгалах массив
+      let reachablePositions = [];
+
+      if (position && position.length === 2) {
+        let col = position[0];
+        let row = parseInt(position[1]);
+
+        let colIndex = cols.indexOf(col);
+
+        // Бүх шилжих хөдөлгөөнийг шалгах
+        for (let move of moves) {
+          let newColIndex = colIndex + move[0];
+          let newRow = row + move[1];
+
+          // Шинэ байрлал самбарын дотор байна уу?
+          if (
+            newColIndex >= 0 &&
+            newColIndex < 8 &&
+            newRow >= 1 &&
+            newRow <= 8
+          ) {
+            reachablePositions.push(cols[newColIndex] + newRow);
           }
         }
 
-        let isSquareSequence = true;
-        for (let i = 0; i < arr.length; i++) {
-          if (arr[i] !== (i + 1) * (i + 1)) {
-            isSquareSequence = false;
-            break;
-          }
-        }
-
-        let isFiboSequence = true;
-        for (let i = 2; i < arr.length; i++) {
-          if (arr[i] !== arr[i - 1] + arr[i - 2]) {
-            isFiboSequence = false;
-            break;
-          }
-        }
-
-        let isProductSequence = true;
-        for (let i = 0; i < arr.length; i++) {
-          if (arr[i] !== (i + 1) * (i + 2)) {
-            isProductSequence = false;
-            break;
-          }
-        }
-
-        // Дараагийн 3 тоог олох
-        if (isEvenSequence) {
-          let last = arr[arr.length - 1];
-          for (let i = 1; i <= 3; i++) {
-            result.push(last + 2 * i);
-          }
-        } else if (isSquareSequence) {
-          let start = arr.length + 1;
-          for (let i = start; i < start + 3; i++) {
-            result.push(i * i);
-          }
-        } else if (isFiboSequence) {
-          let a = arr[arr.length - 2];
-          let b = arr[arr.length - 1];
-          for (let i = 0; i < 3; i++) {
-            let c = a + b;
-            result.push(c);
-            a = b;
-            b = c;
-          }
-        } else if (isProductSequence) {
-          let start = arr.length + 1;
-          for (let i = start; i < start + 3; i++) {
-            result.push(i * (i + 1));
-          }
-        } else {
-          console.log("Тодорхой дараалал биш байна");
-        }
-
-        console.log("Дараагийн 3 тоо: " + result.join(", "));
+        console.log(`"${position}" байршлаас хүрч болох байршил:`);
+        console.log(reachablePositions);
       } else {
-        console.log("Оролт хоосон байна");
+        console.log("Буруу байрлал орууллаа!");
       }
-      //
-
-      //
-
-      //
-
-      //
     </script>
   </body>
 </html>
