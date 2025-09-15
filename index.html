@@ -448,6 +448,89 @@
       //
 
       //
+
+      // Хэрэглэгчээс дараалал авах (таслалаар тусгаарласан тоонууд)
+      let input = prompt("Тоонуудыг таслалаар (,) тусгаарлаж оруулна уу:");
+
+      if (input) {
+        // Стрингийг тоон массив болгох
+        let arr = input.split(",").map((num) => parseInt(num.trim()));
+
+        let result = [];
+
+        // Дарааллын төрөл шалгах
+        let isEvenSequence = true;
+        for (let i = 1; i < arr.length; i++) {
+          if (arr[i] - arr[i - 1] !== 2) {
+            isEvenSequence = false;
+            break;
+          }
+        }
+
+        let isSquareSequence = true;
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] !== (i + 1) * (i + 1)) {
+            isSquareSequence = false;
+            break;
+          }
+        }
+
+        let isFiboSequence = true;
+        for (let i = 2; i < arr.length; i++) {
+          if (arr[i] !== arr[i - 1] + arr[i - 2]) {
+            isFiboSequence = false;
+            break;
+          }
+        }
+
+        let isProductSequence = true;
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] !== (i + 1) * (i + 2)) {
+            isProductSequence = false;
+            break;
+          }
+        }
+
+        // Дараагийн 3 тоог олох
+        if (isEvenSequence) {
+          let last = arr[arr.length - 1];
+          for (let i = 1; i <= 3; i++) {
+            result.push(last + 2 * i);
+          }
+        } else if (isSquareSequence) {
+          let start = arr.length + 1;
+          for (let i = start; i < start + 3; i++) {
+            result.push(i * i);
+          }
+        } else if (isFiboSequence) {
+          let a = arr[arr.length - 2];
+          let b = arr[arr.length - 1];
+          for (let i = 0; i < 3; i++) {
+            let c = a + b;
+            result.push(c);
+            a = b;
+            b = c;
+          }
+        } else if (isProductSequence) {
+          let start = arr.length + 1;
+          for (let i = start; i < start + 3; i++) {
+            result.push(i * (i + 1));
+          }
+        } else {
+          console.log("Тодорхой дараалал биш байна");
+        }
+
+        console.log("Дараагийн 3 тоо: " + result.join(", "));
+      } else {
+        console.log("Оролт хоосон байна");
+      }
+      //
+
+      //
+
+      //
+
+      //
     </script>
   </body>
 </html>
