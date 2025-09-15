@@ -369,60 +369,60 @@
       //   console.log(line);
       // }
 
-      // 6
       //
       //
       //
+      // 6 666666666666666666666666
 
       // //
-      // let str = prompt("INPUT!!");
+      let str = prompt("INPUT!!");
 
-      // let letters = 0;
-      // let digits = 0;
-      // let spaces = 0;
-      // let symbols = 0;
+      let letters = 0;
+      let digits = 0;
+      let spaces = 0;
+      let symbols = 0;
 
-      // let freq = {};
+      let freq = {};
 
-      // for (let char of str) {
-      //   if (char.match(/[a-zA-Z]/)) {
-      //     letters++;
-      //   } else if (char.match(/[0-9]/)) {
-      //     digits++;
-      //   } else if (char === " ") {
-      //     spaces++;
-      //   } else {
-      //     symbols++;
-      //   }
+      for (let char of str) {
+        if (char.match(/[a-zA-Z]/)) {
+          letters++;
+        } else if (char.match(/[0-9]/)) {
+          digits++;
+        } else if (char === " ") {
+          spaces++;
+        } else {
+          symbols++;
+        }
 
-      //   freq[char] = (freq[char] || 0) + 1;
-      // }
+        freq[char] = (freq[char] || 0) + 1;
+      }
 
-      // let maxCount = 0;
-      // let maxChar = "";
+      let maxCount = 0;
+      let maxChar = "";
 
-      // for (let key in freq) {
-      //   if (freq[key] > maxCount) {
-      //     maxCount = freq[key];
-      //     maxChar = key;
-      //   }
-      // }
+      for (let key in freq) {
+        if (freq[key] > maxCount) {
+          maxCount = freq[key];
+          maxChar = key;
+        }
+      }
+
+      console.log(
+        `Үсэг: ${letters}, Тоо: ${digits}, Тэмдэгт: ${symbols}, Зай: ${spaces}`
+      );
+      console.log(`Хамгийн их орсон тэмдэгт: "${maxChar}" (${maxCount} удаа)`);
 
       //
-
       //
-
-      // console.log(
-      //   `Үсэг: ${letters}, Тоо: ${digits}, Тэмдэгт: ${symbols}, Зай: ${spaces}`
-      // );
-      // console.log(`Хамгийн их орсон тэмдэгт: "${maxChar}" (${maxCount} удаа)`);
-
+      //
+      //
+      //
       // //
-      //
-      // zoos
-      let hemjee = prompt("Hemjeeg oruulna uu"); // Өгөгдсөн дүн
 
-      // // Зоос/дэвсгэртийн жагсаалт (томоос жижиг рүү)
+      // zoos;
+      // let hemjee = prompt("Hemjeeg oruulna uu"); // Өгөгдсөн дүн
+      // // Зоос дэвсгэртийн жагсаалт (томоос жижиг рүү)
       // let zoos = [
       //   20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 1,
       // ];
@@ -441,13 +441,8 @@
       // for (let coin in result) {
       //   console.log(`${coin}: ${result[coin]}ш`);
       // }
-      //
 
-      //
-
-      //
-
-      //
+      // //
 
       // // Хэрэглэгчээс дараалал авах (таслалаар тусгаарласан тоонууд)
       // let input = prompt("Тоонуудыг таслалаар (,) тусгаарлаж оруулна уу:");
@@ -528,57 +523,57 @@
 
       //
 
-      //
+      // //
 
-      //
-      let position = prompt("Магын байрлалыг оруулна уу (жишээ: d4):");
+      // //
+      // let position = prompt("Магын байрлалыг оруулна уу (жишээ: d4):");
 
-      // Самбарын баганууд болон мөрүүд
-      const cols = ["a", "b", "c", "d", "e", "f", "g", "h"];
-      const rows = [1, 2, 3, 4, 5, 6, 7, 8];
+      // // Самбарын баганууд болон мөрүүд
+      // const cols = ["a", "b", "c", "d", "e", "f", "g", "h"];
+      // const rows = [1, 2, 3, 4, 5, 6, 7, 8];
 
-      // Магын боломжит шилжих координатууд (x,y)
-      const moves = [
-        [2, 1],
-        [2, -1],
-        [-2, 1],
-        [-2, -1],
-        [1, 2],
-        [1, -2],
-        [-1, 2],
-        [-1, -2],
-      ];
+      // // Магын боломжит шилжих координатууд (x,y)
+      // const moves = [
+      //   [2, 1],
+      //   [2, -1],
+      //   [-2, 1],
+      //   [-2, -1],
+      //   [1, 2],
+      //   [1, -2],
+      //   [-1, 2],
+      //   [-1, -2],
+      // ];
 
-      // Бүтээгдэхүүн байрлалуудыг хадгалах массив
-      let reachablePositions = [];
+      // // Бүтээгдэхүүн байрлалуудыг хадгалах массив
+      // let reachablePositions = [];
 
-      if (position && position.length === 2) {
-        let col = position[0];
-        let row = parseInt(position[1]);
+      // if (position && position.length === 2) {
+      //   let col = position[0];
+      //   let row = parseInt(position[1]);
 
-        let colIndex = cols.indexOf(col);
+      //   let colIndex = cols.indexOf(col);
 
-        // Бүх шилжих хөдөлгөөнийг шалгах
-        for (let move of moves) {
-          let newColIndex = colIndex + move[0];
-          let newRow = row + move[1];
+      //   // Бүх шилжих хөдөлгөөнийг шалгах
+      //   for (let move of moves) {
+      //     let newColIndex = colIndex + move[0];
+      //     let newRow = row + move[1];
 
-          // Шинэ байрлал самбарын дотор байна уу?
-          if (
-            newColIndex >= 0 &&
-            newColIndex < 8 &&
-            newRow >= 1 &&
-            newRow <= 8
-          ) {
-            reachablePositions.push(cols[newColIndex] + newRow);
-          }
-        }
+      //     // Шинэ байрлал самбарын дотор байна уу?
+      //     if (
+      //       newColIndex >= 0 &&
+      //       newColIndex < 8 &&
+      //       newRow >= 1 &&
+      //       newRow <= 8
+      //     ) {
+      //       reachablePositions.push(cols[newColIndex] + newRow);
+      //     }
+      //   }
 
-        console.log(`"${position}" байршлаас хүрч болох байршил:`);
-        console.log(reachablePositions);
-      } else {
-        console.log("Буруу байрлал орууллаа!");
-      }
+      //   console.log(`"${position}" байршлаас хүрч болох байршил:`);
+      //   console.log(reachablePositions);
+      // } else {
+      //   console.log("Буруу байрлал орууллаа!");
+      // }
     </script>
   </body>
 </html>
