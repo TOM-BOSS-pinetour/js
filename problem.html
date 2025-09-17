@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. Dundaj boolon Median
+      // 1. Dundaj boolon Median
+      // 1. Dundaj boolon Median
+      // 1. Dundaj boolon Median
+      // 1. Dundaj boolon Median
+      // 1. Dundaj boolon Median
+      // // bagshiin bodolt
+      // const nums = [1, 2, 6, 3, 7, 4, 5, 7, 2, 1, 5];
+      // // index      0. 1. 2. 3  4. 5. 6. 7
+
+      // let sum = 0; // niilber hadgalna
+      // for (let i = 0; i < nums.length; i++) {
+      //   sum = sum + nums[i];
+      // }
+      // const average = sum / nums.length; //dundaj ni
+
+      // const sortedNums = nums.sort(); // bagaas ih ruu erembelne
+
+      // const middle = Math.floor(nums.length / 2); // dooshoo tulgana
+      // // const mathCeil = Math.ceil(nums.length / 2); // deeshee tulgana
+      // // const mathRound = Math.round(nums.length / 2); // toimlono
+
+      // if (nums.length % 2 === 1) {
+      //   // array sondgoi urttai orj irvel
+      //   console.log(nums[middle]);
+      // } else {
+      //   // array tegsh urttai orj irvel
+      //   const result = (nums[middle] + nums[middle - 1]) / 2;
+      //   console.log(result);
+      // }
+      // // bagshiin bodolt end
+      // start
+      // let ogogdol = [1, 2, 3, 4, 5, 123];
+      // // dundaj
+      // sum = 0;
+      // for (i = 0; i < ogogdol.length; i++) {
+      //   sum = sum + ogogdol[i];
+      // }
+      // let dundaj = sum / ogogdol.length;
+      // console.log("dundaj = " + dundaj);
+      // // median
+      // //   1 end
+      // //   1 end
+      // //   1 end
+      // //   1 end
+      // //   1 end
+      // //   1 end
+      // // 2start
+      // // 2start
+      // // 2start
+      // // 2start
+      // // 2start
+      // // 2start
+      // // 2start
+      // let str = "helliiido";
+      // let vowels = "aeiouAEIOU";
+      // let count = 0;
+
+      // for (let i = 0; i < str.length; i++) {
+      //   if (vowels.indexOf(str[i]) !== -1) {
+      //     count = count + 1;
+      //   }
+      // }
+
+      // console.log(count);
+      // // 2end
+      // // 2end
+      // // 2end
+      // // 2end
+      // // 2end
+
+      // // 3start anagram shalgah
+      // // 3start anagram shalgah
+      // // 3start anagram shalgah
+      // // 3start anagram shalgah
+      // // 3start anagram shalgah
+      // // 3start anagram shalgah
+      // let str1 = "listen";
+      // let str2 = "silent";
+
+      // // jijig useg bolgoh
+      // str1 = str1.toLowerCase();
+      // str2 = str2.toLowerCase();
+
+      // // massive bolgon erembleh
+      // let arr1 = str1.split("");
+      // let arr2 = str2.split("");
+
+      // arr1.sort();
+      // arr2.sort();
+
+      // // Tentsuu urtta esehiig shalgah
+      // let isAnagram = true;
+      // if (arr1.length !== arr2.length) {
+      //   isAnagram = false;
+      // } else {
+      //   for (let i = 0; i < arr1.length; i++) {
+      //     if (arr1[i] !== arr2[i]) {
+      //       isAnagram = false;
+      //       break;
+      //     }
+      //   }
+      // }
+
+      // console.log(isAnagram);
+      // // 3end
+      // // 3end
+      // // 3end
+      // // 3end
+      // // 3end
+      // // 3end
+      // // 3end
+      // // 3end
+      // 4start
+      // 4start
+      // 4start
+      // 4start
+      // 4start
+      // 4start
+      // 4start
+      let nums = [10, 9, 2, 5, 3, 7, 101, 18];
+
+      // dp massive - ene index deer hamgyn urt osoh daraalliin urt
+      let dp = [];
+      for (let i = 0; i < nums.length; i++) {
+        dp[i] = 1;
+      }
+
+      for (let i = 1; i < nums.length; i++) {
+        for (let j = 0; j < i; j++) {
+          if (nums[i] > nums[j] && dp[i] < dp[j] + 1) {
+            dp[i] = dp[j] + 1;
+          }
+        }
+      }
+
+      // dp massivaas hamgyn ih utgyg oloh
+      let maxLen = dp[0];
+      for (let i = 1; i < dp.length; i++) {
+        if (dp[i] > maxLen) {
+          maxLen = dp[i];
+        }
+      }
+
+      console.log(maxLen); // hamgiin urt osoh daraalliin urt
+    </script>
+  </body>
+</html>
