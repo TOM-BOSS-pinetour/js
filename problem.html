@@ -125,52 +125,127 @@
       // 4start
       // 4start
       // 4start
-      let nums = [
-        1, 2, 3, 4, 5, 6, 7, 8, 2, 3, 25, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
-        13, 14, 15, 18, 20,
-      ];
+      // let nums = [1, 2, 3, 4, 5, 2, 3, 25, 1, 2, 18, 20];
 
-      let maxLen = 1;
-      let currLen = 1;
-      let startIndex = 0;
-      let maxStartIndex = 0;
+      // // Хамгийн урт дараалсан өсөлтийн урт болон эхлэх индекс хадгалах хувьсагчууд
+      // let maxLen = 1; // Хамгийн урт дэд массивын урт
+      // let currLen = 1; // Одоогоор тоолж байгаа өсөлтийн урт
+      // let startIndex = 0; // Одоогийн дэд массив эхэлж буй индекс
+      // let maxStartIndex = 0; // Хамгийн урт өсөлтийн эхний индекс
 
-      for (let i = 1; i < nums.length; i++) {
-        if (nums[i] > nums[i - 1]) {
-          currLen++;
-          if (currLen > maxLen) {
-            maxLen = currLen;
-            maxStartIndex = startIndex;
-          }
-        } else {
-          currLen = 1;
-          startIndex = i;
+      // // Массивын эхнээс дуустал давталт хийнэ
+      // for (let i = 1; i < nums.length; i++) {
+      //   // Хэрэв дараагийн тоо өмнөхөөсөө их бол өсөлт үргэлжилж байна
+      //   if (nums[i] > nums[i - 1]) {
+      //     currLen++; // уртыг нэмнэ
+      //     // Хэрвээ энэ нь өмнөх хамгийн уртаас урт бол шинэ уртыг хадгална
+      //     if (currLen > maxLen) {
+      //       maxLen = currLen;
+      //       maxStartIndex = startIndex;
+      //     }
+      //   } else {
+      //     // Хэрэв өсөлт тасарвал шинээр тоолж эхэлнэ
+      //     currLen = 1;
+      //     startIndex = i;
+      //   }
+      // }
+
+      // // Хамгийн урт дараалсан өсөлттэй хэсгийг массиваас салгаж авна
+      // let result = nums.slice(maxStartIndex, maxStartIndex + maxLen);
+
+      // // Үр дүнг хэвлэнэ
+      // console.log(result);
+      // 4end
+      // 4end
+      // 4end
+      // 4end
+      // 4end
+      // 5start
+      // 5start
+      // 5start
+      // 5start
+      // 5start
+
+      // // Шалгах string-ийг энд тодорхойлно
+      // let s = "fdsafsfsasdsahfksdfksfs";
+
+      // // Хамгийн урт палиндромын эхлэх байрлал болон урт хадгалах хувьсагчууд
+      // let maxStart = 0; // палиндромын эхлэх индекс
+      // let maxLen = 1; // палиндромын урт
+
+      // // Бүх үсэг бүрийг төв болгож шалгана
+      // for (let i = 0; i < s.length; i++) {
+      //   // 1. Тэгш урт палиндром шалгах (жишээ нь: "abba")
+      //   let left = i;
+      //   let right = i + 1;
+
+      //   // Зүүн, баруун тийш тэлж палиндром эсэхийг шалгана
+      //   while (left >= 0 && right < s.length && s[left] === s[right]) {
+      //     // Хэрэв одоогийн палиндромын урт нь өмнөхөөс урт бол хадгална
+      //     if (right - left + 1 > maxLen) {
+      //       maxStart = left;
+      //       maxLen = right - left + 1;
+      //     }
+      //     left--;
+      //     right++;
+      //   }
+
+      //   // 2. Сондгой урт палиндром шалгах (жишээ нь: "aba")
+      //   left = i - 1;
+      //   right = i + 1;
+
+      //   while (left >= 0 && right < s.length && s[left] === s[right]) {
+      //     if (right - left + 1 > maxLen) {
+      //       maxStart = left;
+      //       maxLen = right - left + 1;
+      //     }
+      //     left--;
+      //     right++;
+      //   }
+      // }
+
+      // // hamgyn urt palindrome stringiig avna
+      // let result = s.slice(maxStart, maxStart + maxLen);
+
+      // // Үр дүнг хэвлэнэ
+      // console.log(result);
+
+      // 5end
+      // 5end
+      // 5end
+      // 5end
+      // 5end
+      // 6start
+      // 6start
+      // 6start
+      // 6start
+      // 6start
+      // massive dahi dundajtai oirhon too
+      // [2,5,8,12] --> 8(dundaj ni 6.75)
+      let arr = [2, 5, 8, 12, 12, 25, 100, 1000];
+
+      // 1. massiveiin dundajiig olno
+      let sum = 0;
+      for (let i = 0; i < arr.length; i++) {
+        sum += arr[i]; // buh elementiig niiluulne
+      }
+      let avg = sum / arr.length; // dundaj
+
+      // 2. dundajtai hamgyn oir toog oloh
+      let closest = arr[0]; // hamgiin ehnii elementees ehled haritsuulj ehlne
+      let minDiff = Math.abs(arr[0] - avg); // ylgaag absolut-eer avna
+
+      for (let i = 1; i < arr.length; i++) {
+        let diff = Math.abs(arr[i] - avg); // tuhain elementiin dundajaas zoruu
+        if (diff < minDiff) {
+          minDiff = diff; // hamgyn baga zoruug hadgalna
+          closest = arr[i]; // hamgyn oir toog shinechilne
         }
       }
 
-      let result = nums.slice(maxStartIndex, maxStartIndex + maxLen);
-      console.log(result);
+      console.log("Дундаж:", avg);
+      console.log("Хамгийн ойр тоо:", closest);
 
-      // 4end
-      // 4end
-      // 4end
-      // 4end
-      // 4end
-      // 5start
-      // 5start
-      // 5start
-      // 5start
-      // 5start
-      // 5end
-      // 5end
-      // 5end
-      // 5end
-      // 5end
-      // 6start
-      // 6start
-      // 6start
-      // 6start
-      // 6start
       // 6end
       // 6end
       // 6end
