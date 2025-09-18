@@ -148,36 +148,36 @@
       //
       //
       //
-      let nums = [1, 2, 3, 4, 5, 2, 3, 25, 1, 2, 18, 20];
+      // let nums = [1, 2, 3, 4, 5, 2, 3, 25, 1, 2, 18, 20];
 
-      // Хамгийн урт дараалсан өсөлтийн урт болон эхлэх индекс хадгалах хувьсагчууд
-      let maxLen = 1; // Хамгийн урт дэд массивын урт
-      let currLen = 1; // Одоогоор тоолж байгаа өсөлтийн урт
-      let startIndex = 0; // Одоогийн дэд массив эхэлж буй индекс
-      let maxStartIndex = 0; // Хамгийн урт өсөлтийн эхний индекс
+      // // Хамгийн урт дараалсан өсөлтийн урт болон эхлэх индекс хадгалах хувьсагчууд
+      // let maxLen = 1; // Хамгийн урт дэд массивын урт
+      // let currLen = 1; // Одоогоор тоолж байгаа өсөлтийн урт
+      // let startIndex = 0; // Одоогийн дэд массив эхэлж буй индекс
+      // let maxStartIndex = 0; // Хамгийн урт өсөлтийн эхний индекс
 
-      // Массивын эхнээс дуустал давталт хийнэ
-      for (let i = 1; i < nums.length; i++) {
-        // Хэрэв дараагийн тоо өмнөхөөсөө их бол өсөлт үргэлжилж байна
-        if (nums[i] > nums[i - 1]) {
-          currLen++; // уртыг нэмнэ
-          // Хэрвээ энэ нь өмнөх хамгийн уртаас урт бол шинэ уртыг хадгална
-          if (currLen > maxLen) {
-            maxLen = currLen;
-            maxStartIndex = startIndex;
-          }
-        } else {
-          // Хэрэв өсөлт тасарвал шинээр тоолж эхэлнэ
-          currLen = 1;
-          startIndex = i;
-        }
-      }
+      // // Массивын эхнээс дуустал давталт хийнэ
+      // for (let i = 1; i < nums.length; i++) {
+      //   // Хэрэв дараагийн тоо өмнөхөөсөө их бол өсөлт үргэлжилж байна
+      //   if (nums[i] > nums[i - 1]) {
+      //     currLen++; // уртыг нэмнэ
+      //     // Хэрвээ энэ нь өмнөх хамгийн уртаас урт бол шинэ уртыг хадгална
+      //     if (currLen > maxLen) {
+      //       maxLen = currLen;
+      //       maxStartIndex = startIndex;
+      //     }
+      //   } else {
+      //     // Хэрэв өсөлт тасарвал шинээр тоолж эхэлнэ
+      //     currLen = 1;
+      //     startIndex = i;
+      //   }
+      // }
 
-      // Хамгийн урт дараалсан өсөлттэй хэсгийг массиваас салгаж авна
-      let result = nums.slice(maxStartIndex, maxStartIndex + maxLen);
+      // // Хамгийн урт дараалсан өсөлттэй хэсгийг массиваас салгаж авна
+      // let result = nums.slice(maxStartIndex, maxStartIndex + maxLen);
 
-      // Үр дүнг хэвлэнэ
-      console.log(result);
+      // // Үр дүнг хэвлэнэ
+      // console.log(result);
       // 4end
       // 4end
       // 4end
@@ -237,7 +237,6 @@
       // // hamgyn urt palindrome stringiig avna
       // let result = s.slice(maxStart, maxStart + maxLen);
 
-      // // Үр дүнг хэвлэнэ
       // console.log(result);
 
       // 5end
@@ -276,7 +275,7 @@
       // }
 
       // console.log("Дундаж:", avg);
-      // console.log("Хамгийн ойр тоо:", closest);
+      // console.log("hamgyn oir too:", closest);
 
       // 6end
       // 6end
